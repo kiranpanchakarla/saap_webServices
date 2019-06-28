@@ -1,0 +1,120 @@
+
+<!--==========================
+    Stadium Section
+  ============================-->
+<!--==========================
+    Stadium Section
+  ============================-->
+
+<section id="portfolio"  class="section-bg stadium-wrap" >
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4"> <img src="../../static/img/stadiums.jpg" alt="" title="" class="wow fadeInLeft" style="visibility: visible; animation-name: fadeInLeft;"> </div>
+      <div class="col-lg-8">
+        <header class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+          <h5 class="highlight">{{stadium?.name}}</h5>
+          <p>{{sportNames}}</p>
+          <!-- <p>Description???</p>
+          <ul class="stadium-list">
+            <li><span class="spo-details">Indoor</span></li>
+            <li><span class="spo-details">
+                <label class="highlight">Owner:</label>
+                DSA Ananthapuramu</span></li>
+            <li><span class="spo-details">
+                <label class="highlight">Contact:</label>
+                9652302233</span></li>
+          </ul> -->
+        </header>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="text-right">
+          <ul class="stadium-btn-list">
+            <li>
+              <div class="dropdown">
+                <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Types of sports<span class="caret"></span></button>
+                <ul id="portfolio-flters" class="dropdown-menu">
+                  <li data-filter="*" [ngClass]="stadiumRequest.sportId ? '' : 'filter-active'" (click)="refreshEvents('sportId', null)">All</li>
+                  <li *ngFor="let sport of filters?.sports" [ngClass]="stadiumRequest.sportId == sport?.id ? 'filter-active' : ''" (click)="refreshEvents('sportId', sport?.id)">{{sport?.name}}</li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <div class="dropdown">
+                <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Indoor/Outdoor<span class="caret"></span></button>
+                <ul id="portfolio-flters" class="dropdown-menu">
+                  <li data-filter="*" [ngClass]="stadiumRequest.sportTypeId ? '' : 'filter-active'" (click)="refreshEvents('sportTypeId', null)">All</li>
+                  <li *ngFor="let sportType of filters?.sportTypes" [ngClass]="stadiumRequest.sportTypeId == sportType?.id ? 'filter-active' : ''" (click)="refreshEvents('sportTypeId', sportType?.id)">{{sportType?.name}}</li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <div class="dropdown">
+                <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Play Field<span class="caret"></span></button>
+                <ul id="portfolio-flters" class="dropdown-menu">
+                  <li data-filter="*" [ngClass]="stadiumRequest.playFieldId ? '' : 'filter-active'" (click)="refreshEvents('playFieldId', null)">All</li>
+                  <li *ngFor="let playField of filters?.playFields" [ngClass]="stadiumRequest.playFieldId == playField?.id ? 'filter-active' : ''" (click)="refreshEvents('playFieldId', playField?.id)">{{playField?.name}}</li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="btn-right"><a href="book-now.html" class="book-now">Book Now</a></div>
+      </div>
+      <div class="col-lg-12">
+        <div class="additional-messages">
+          <p>M-Ticket Available</p>
+        </div>
+        <ul class="list-ticket">
+          <li *ngFor="let eventSlot of eventSlots">
+            <div class="name-box">{{eventSlot?.event?.playField?.name}}</div>
+            <div class="details-box">
+              <ul class="ticket-details-timeing">
+                <li class="active" *ngFor="let slot of eventSlot?.slots"><a href="#" data-toggle="tooltip" title="Active">{{slot?.startTime}} - {{slot.endTime}}</a></li>
+                <!-- <li class="in-active"><a href="#" data-toggle="tooltip" title="Inactive">07:20 PM</a></li>
+                <li class="stable"><a href="#" data-toggle="tooltip" title="Stable">10:20 PM</a></li> -->
+              </ul>
+            </div>
+          </li>
+          <!-- <li>
+            <div class="name-box">Uravakonda Stadium </div>
+            <div class="details-box">
+              <ul class="ticket-details-timeing">
+                <li class="active" ><a href="#" data-toggle="tooltip" title="Active">01:45 PM</a></li>
+                <li class="stable"><a href="#" data-toggle="tooltip" title="Stable">07:20 PM</a></li>
+                <li class="in-active"><a href="#" data-toggle="tooltip" title="Inactive">10:20 PM</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="name-box">Kalyanadurgam Sports Stadium</div>
+            <div class="details-box">
+              <ul class="ticket-details-timeing">
+                <li class="stable" ><a href="#" data-toggle="tooltip" title="Stable">01:45 PM</a></li>
+                <li class="stable"><a href="#" data-toggle="tooltip" title="Stable">07:20 PM</a></li>
+                <li class="in-active"><a href="#" data-toggle="tooltip" title="Inactive">10:20 PM</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="name-box">Narpala Sports Stadium</div>
+            <div class="details-box">
+              <ul class="ticket-details-timeing">
+                <li class="active" ><a href="#" data-toggle="tooltip" title="Active">01:45 PM</a></li>
+                <li class="in-active"><a href="#" data-toggle="tooltip" title="Inactive">07:20 PM</a></li>
+                <li class="stable"><a href="#" data-toggle="tooltip" title="Stable">10:20 PM</a></li>
+              </ul>
+            </div>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- #stadium -->

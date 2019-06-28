@@ -1,0 +1,76 @@
+
+<!--==========================
+    Stadium Section
+  ============================-->
+
+<section id="portfolio"  class="section-bg stadium-wrap" >
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="text-center"> <img src="img/stadiums-main.png" alt="" title="" class="wow fadeInUp"
+                                       style="visibility:visible;animation-name: fadeInUp;"></div>
+        <header class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+          <p>&nbsp;</p>
+          <p class="highlight">Sports Infrastructure is crucial for sports activity. Development of Sports infrastructure to cater the needs of all sectors of people has to be kept in mind while planning the sports infrastructure. </p>
+          <p>Constructing several international standard stadiums, Gyms and swimming pools will not help the state, unless the grass root and middle level facilities are provided. The experience clearly indicates that the construction of all International level stadiums at one place has proved that it is an investment in haste and it can serve the purpose of conducting one or two major tournaments only. After that, the stadiums were kept ideal and were not useful for the state. Incurring such huge exchequer without proper future planning causes a great loss to the state. Hence there is a need to plan the sports infrastructure for different levels and they can be equally spread all over the state. </p>
+          <p>&nbsp;</p>
+      </header>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="text-right">
+          <ul class="stadium-btn-list">
+            <li>
+              <div class="dropdown">
+                <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Stadiums<span class="caret"></span></button>
+                <ul id="portfolio-flters" class="dropdown-menu">
+                  <li data-filter="*" [ngClass]="stadiumRequest.stadiumId ? '' : 'filter-active'"  (click)="refreshStadiums('stadiumId', null)">All</li>
+                  <li *ngFor="let stadium of filters?.stadiums" [ngClass]="stadiumRequest.stadiumId == stadium?.id ? 'filter-active' : ''" (click)="refreshStadiums('stadiumId', stadium?.id)">{{stadium?.name}}</li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <div class="dropdown">
+                <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Location<span class="caret"></span></button>
+                <ul id="portfolio-flters" class="dropdown-menu">
+                  <li data-filter="*" [ngClass]="stadiumRequest.districtId ? '' : 'filter-active'" (click)="refreshStadiums('districtId', null)">All</li>
+                  <li *ngFor="let district of filters?.districts" [ngClass]="stadiumRequest.districtId == district?.id ? 'filter-active' : ''" (click)="refreshStadiums('districtId', district?.id)">{{district?.name}}</li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <div class="dropdown">
+                <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Types of sports<span class="caret"></span></button>
+                <ul id="portfolio-flters" class="dropdown-menu">
+                  <li data-filter="*" [ngClass]="stadiumRequest.sportId ? '' : 'filter-active'" (click)="refreshStadiums('sportId', null)">All</li>
+                  <li *ngFor="let sport of filters?.sports" [ngClass]="stadiumRequest.sportId == sport?.id ? 'filter-active' : ''" (click)="refreshStadiums('sportId', sport?.id)">{{sport?.name}}</li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <div class="dropdown">
+                <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Indoor/Outdoor<span class="caret"></span></button>
+                <ul id="portfolio-flters" class="dropdown-menu">
+                  <li data-filter="*" [ngClass]="stadiumRequest.sportTypeId ? '' : 'filter-active'" (click)="refreshStadiums('sportTypeId', null)">All</li>
+                  <li *ngFor="let sportType of filters?.sportTypes" [ngClass]="stadiumRequest.sportTypeId == sportType?.id ? 'filter-active' : ''" (click)="refreshStadiums('sportTypeId', sportType?.id)">{{sportType?.name}}</li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row portfolio-container">
+      <div class="col-lg-4 col-md-6 portfolio-item filter-anap wow fadeInUp" *ngFor="let stad of stadiums">
+        <div class="portfolio-wrap">
+          <figure> <img src="../../static/img/stadiums/stadiums1.jpg" class="img-fluid" alt="">
+          <a (click)="stadiumDetails(stad.id)" class="link-preview" title="More Details"><i class="fa fa-link"></i></a> </figure>
+          <div class="portfolio-info">
+            <h4><a (click)="stadiumDetails(stad.id)">{{stad?.name}}</a></h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
